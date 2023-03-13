@@ -2,8 +2,8 @@
 
 namespace TechJobsConsoleAutograded6
 {
-	public class TechJobs
-	{
+    public class TechJobs
+    {
         public void RunProgram()
         {
             // Create two Dictionary vars to hold info for menu and data
@@ -134,8 +134,27 @@ namespace TechJobsConsoleAutograded6
 
         // TODO: complete the PrintJobs method.
         public void PrintJobs(List<Dictionary<string, string>> someJobs)
+
         {
-            Console.WriteLine("PrintJobs is not implemented yet");
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("No jobs found");
+            }
+            else
+            {
+                Console.WriteLine("*****");
+                foreach (var job in someJobs)
+                {
+                    foreach (var keyValuePair in job)
+                    {
+                        Console.WriteLine("{0}: {1}{2}", keyValuePair.Key, keyValuePair.Value, Environment.NewLine);
+                    }
+                    Console.WriteLine("*****{0}{0}", Environment.NewLine);
+
+
+                    //Console.WriteLine("PrintJobs is not implemented yet");
+                }
+            }
         }
     }
 }
