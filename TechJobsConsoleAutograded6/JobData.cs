@@ -47,7 +47,25 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
 
-            return null;
+            List<Dictionary<string, string>> matchingJobs = new List<Dictionary<string, string>>();
+
+           
+            foreach (var job in AllJobs)
+            {
+                foreach (var keyValuePair in job)
+                {
+                    
+                    if (keyValuePair.Value.ToLower().Contains(value.ToLower()) && !matchingJobs.Contains(job))
+                    {
+                        matchingJobs.Add(job);
+                        break; 
+                    }
+                }
+            }
+
+           
+            matchingJobs.Sort((job1, job2) => job1["name"].CompareTo(job2["name"]));
+            return matchingJobs;
         }
 
         /**
@@ -160,5 +178,8 @@ namespace TechJobsConsoleAutograded6
             return rowValues.ToArray();
         }
     }
+
+
+
 }
 
