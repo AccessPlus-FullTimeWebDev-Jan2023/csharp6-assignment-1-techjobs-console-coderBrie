@@ -151,7 +151,7 @@ namespace TechJobsConsoleAutograded6
                     {
                         Console.WriteLine("{0}: {1}{2}", keyValuePair.Key, keyValuePair.Value, Environment.NewLine);
                     }
-                    Console.WriteLine("*****{0}{0}", Environment.NewLine);
+                    Console.WriteLine("*****", Environment.NewLine);
 
 
                     //Console.WriteLine("PrintJobs is not implemented yet");
