@@ -138,23 +138,28 @@ namespace TechJobsConsoleAutograded6
         public void PrintJobs(List<Dictionary<string, string>> someJobs)
 
         {
+           
+
             if (someJobs.Count == 0)
             {
                 Console.WriteLine("No jobs found");
             }
-            else
+            for (int i = 0; i < someJobs.Count; i++)
             {
                 Console.WriteLine("*****");
-                foreach (var job in someJobs)
+                foreach (var keyValuePair in someJobs[i])
                 {
-                    foreach (var keyValuePair in job)
-                    {
-                        Console.WriteLine("{0}: {1}{2}", keyValuePair.Key, keyValuePair.Value, Environment.NewLine);
-                    }
-                    Console.WriteLine("*****", Environment.NewLine);
+                    Console.WriteLine(keyValuePair.Key + ": " + keyValuePair.Value);
+                }
 
-
-                    //Console.WriteLine("PrintJobs is not implemented yet");
+                if (i < someJobs.Count - 1) 
+                {
+                    Console.WriteLine("*****");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("*****");
                 }
             }
         }
