@@ -149,7 +149,7 @@ namespace TechJobsConsoleAutograded6
                 Console.WriteLine("*****");
                 foreach (var keyValuePair in someJobs[i])
                 {
-                    Console.WriteLine(keyValuePair.Key + ": " + keyValuePair.Value);
+                    Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value}");
                 }
 
                 if (i < someJobs.Count - 1) 
