@@ -49,33 +49,27 @@ namespace TechJobsConsoleAutograded6
 
             List<Dictionary<string, string>> matchingJobs = new List<Dictionary<string, string>>();
 
-           
-            foreach (var job in AllJobs)
+            foreach (Dictionary<string, string> job in AllJobs)
             {
-                foreach (var keyValuePair in job)
+                foreach (KeyValuePair<string, string> keyValuePair in job)
                 {
-                    
                     if (keyValuePair.Value.ToLower().Contains(value.ToLower()) && !matchingJobs.Contains(job))
                     {
                         matchingJobs.Add(job);
-                        break; 
+                        
                     }
                 }
             }
 
-           
-            matchingJobs.Sort((job1, job2) => job1["name"].CompareTo(job2["name"]));
+          
             return matchingJobs;
+            // the evil bonus mission that broke my code lies here >>>
+            //wait no .. its here >>> matchingJobs.Sort((job1, job2) => job1["name"].CompareTo(job2["name"]));
+            //return matchingJobs;//
         }
 
-        /**
-         * Returns results of search the jobs data by key/value, using
-         * inclusion of the search term.
-         *
-         * For example, searching for employer "Enterprise" will include results
-         * with "Enterprise Holdings, Inc".
-         */
-        public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
+            
+            public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {
             // load data, if not already loaded
             LoadData();

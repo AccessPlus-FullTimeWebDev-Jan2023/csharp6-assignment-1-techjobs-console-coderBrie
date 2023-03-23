@@ -65,7 +65,7 @@ namespace TechJobsConsoleAutograded6
                     if (columnChoice.Equals("all"))
                     {
                         List<Dictionary<string, string>> matchingValues = JobData.FindByValue(searchTerm);
-                        Console.WriteLine(Environment.NewLine + "*** Matching Values ***");
+                 
                         PrintJobs(matchingValues);
                     }
                     else
@@ -142,25 +142,25 @@ namespace TechJobsConsoleAutograded6
 
             if (someJobs.Count == 0)
             {
-                Console.WriteLine("No jobs found");
+                Console.WriteLine("No results");
             }
             for (int i = 0; i < someJobs.Count; i++)
             {
-                Console.WriteLine("*****");
-                foreach (var keyValuePair in someJobs[i])
+                Console.WriteLine(Environment.NewLine + "*****");
+                foreach (KeyValuePair<string, string> keyValuePair in someJobs[i])
                 {
                     Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value}");
                 }
 
-                if (i < someJobs.Count - 1) 
-                {
-                    Console.WriteLine("*****");
-                    Console.WriteLine();
-                }
-                else
-                {
-                    Console.WriteLine("*****");
-                }
+                //if (i < someJobs.Count - 1) 
+                //{
+                //    Console.WriteLine("*****");
+                //    //Console.WriteLine();
+                //}
+                //else
+                //{
+                Console.WriteLine("*****");
+                //}
             }
         }
     }
