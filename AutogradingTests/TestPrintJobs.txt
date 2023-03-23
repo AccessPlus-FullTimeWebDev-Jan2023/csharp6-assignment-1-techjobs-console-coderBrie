@@ -11,7 +11,7 @@ Search by:
 3 - Position Type
 4 - All
 
-Search term:
+Search term: 
 
 *****
 name: Full Stack Developer
