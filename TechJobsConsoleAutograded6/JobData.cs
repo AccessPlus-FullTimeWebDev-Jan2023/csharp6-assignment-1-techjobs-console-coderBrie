@@ -47,17 +47,29 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
 
-            return null;
+            List<Dictionary<string, string>> matchingJobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                foreach (KeyValuePair<string, string> keyValuePair in job)
+                {
+                    if (keyValuePair.Value.ToLower().Contains(value.ToLower()) && !matchingJobs.Contains(job))
+                    {
+                        matchingJobs.Add(job);
+                        
+                    }
+                }
+            }
+
+          
+            return matchingJobs;
+            // the evil bonus mission that broke my code lies here >>>
+            //wait no .. its here >>> matchingJobs.Sort((job1, job2) => job1["name"].CompareTo(job2["name"]));
+            //return matchingJobs;//
         }
 
-        /**
-         * Returns results of search the jobs data by key/value, using
-         * inclusion of the search term.
-         *
-         * For example, searching for employer "Enterprise" will include results
-         * with "Enterprise Holdings, Inc".
-         */
-        public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
+            
+            public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {
             // load data, if not already loaded
             LoadData();
@@ -70,7 +82,7 @@ namespace TechJobsConsoleAutograded6
 
 
                 //TODO: Make search case-insensitive
-                if (aValue.Contains(value))
+                if (string.Equals(aValue, value, StringComparison.OrdinalIgnoreCase))
                 {
                     jobs.Add(row);
                 }
@@ -160,5 +172,8 @@ namespace TechJobsConsoleAutograded6
             return rowValues.ToArray();
         }
     }
+
+
+
 }
 
